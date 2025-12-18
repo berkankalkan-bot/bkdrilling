@@ -28,27 +28,35 @@ export default function Home() {
                   </div>
                   
                   {/* Split Hover Effect - Çok hızlı kopma */}
-                  <Link 
-                    href="/machines/sandvik/surface" 
+                  <Link
+                    href="/machines/sandvik/surface"
                     className="absolute top-0 left-0 w-full h-[calc(50%+2px)] bg-[#FF6B6B]/0 hover:bg-[#FF6B6B]/100 transition-all duration-100 flex items-center justify-center group z-40 hover:translate-y-[-10px]"
                   >
-                    <span className="text-white text-3xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-100">
-                      Surface Drilling
-                    </span>
+                    <div className="flex flex-col items-center justify-start max-w-full px-2 h-full pt-2">
+                      <img
+                        src="/images/surface-drill.png"
+                        alt="Surface Drill"
+                        className="w-auto md:w-[600px] max-h-[90%] object-contain drop-shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-6"
+                        style={{ background: 'none' }}
+                      />
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg">
+                        Surface Drilling
+                      </span>
+                    </div>
                   </Link>
                   
                   <Link
                     href="/machines/sandvik/underground"
                     className="absolute bottom-0 left-0 w-full h-[calc(50%+2px)] bg-[#8B0000]/0 hover:bg-[#8B0000]/100 transition-all duration-100 flex items-center justify-center group z-40 hover:translate-y-[10px]"
                   >
-                    <div className="flex flex-col items-center justify-center max-w-full px-2">
+                    <div className="flex flex-col items-center justify-start max-w-full px-2 h-full -mt-4">
                       <img
                         src="/images/underground-drill.png"
                         alt="Underground Drill"
-                        className="w-auto md:w-[300px] max-h-[55%] md:max-h-[55%] object-contain drop-shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50"
+                        className="w-auto md:w-[720px] max-h-[98%] object-contain drop-shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-12"
                         style={{ background: 'none' }}
                       />
-                      <span className="mt-2 text-white text-sm md:text-base font-semibold tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center z-50">
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg">
                         Underground Drilling
                       </span>
                     </div>
@@ -70,22 +78,38 @@ export default function Home() {
                   </div>
                   
                   {/* Split Hover Effect - Çok hızlı kopma */}
-                  <Link 
-                    href="/machines/epiroc/surface" 
-                    className="absolute top-0 left-0 w-full h-[calc(50%+2px)] bg-[#FCD34D]/0 hover:bg-[#FCD34D]/100 transition-all duration-100 flex items-center justify-center group/surface group-hover:translate-y-[-10px]"
+                  <Link
+                    href="/machines/epiroc/surface"
+                    className="absolute top-0 left-0 w-full h-[calc(50%+2px)] bg-[#FCD34D]/0 hover:bg-[#FCD34D]/60 transition-all duration-100 flex items-center justify-center group z-40 hover:translate-y-[-10px]"
                   >
-                    <span className="text-white text-3xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-100">
-                      Surface Drilling
-                    </span>
+                    <div className="flex flex-col items-center justify-start max-w-full px-2 h-full pt-2">
+                      <img
+                        src="/images/epiroc-surface-drill.png"
+                        alt="Surface Drill"
+                        className="w-auto md:w-[600px] max-h-[90%] object-contain drop-shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-6"
+                        style={{ background: 'none' }}
+                      />
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg">
+                        Surface Drilling
+                      </span>
+                    </div>
                   </Link>
-                  
-                  <Link 
-                    href="/machines/epiroc/underground" 
-                    className="absolute bottom-0 left-0 w-full h-[calc(50%+1px)] bg-[#92400E]/0 hover:bg-[#92400E]/100 transition-all duration-100 flex items-center justify-center group/underground group-hover:translate-y-[10px]"
+
+                  <Link
+                    href="/machines/epiroc/underground"
+                    className="absolute bottom-0 left-0 w-full h-[calc(50%+2px)] bg-[#92400E]/0 hover:bg-[#92400E]/100 transition-all duration-100 flex items-center justify-center group z-40 hover:translate-y-[10px]"
                   >
-                    <span className="text-white text-3xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-100">
-                      Underground Drilling
-                    </span>
+                    <div className="flex flex-col items-center justify-start max-w-full px-2 h-full -mt-4">
+                      <img
+                        src="/images/epiroc-underground-drill.png"
+                        alt="Underground Drill"
+                        className="w-auto md:w-[720px] max-h-[98%] object-contain drop-shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-12"
+                        style={{ background: 'none' }}
+                      />
+                      <span className="text-white text-xl md:text-2xl font-bold tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg">
+                        Underground Drilling
+                      </span>
+                    </div>
                   </Link>
                 </div>
               </CardContent>

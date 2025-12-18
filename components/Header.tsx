@@ -18,29 +18,29 @@ export default function Header() {
     <header className="w-full bg-white shadow-sm">
       {/* Main Header - Logo + Navigation */}
       <div className="bg-black">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-center gap-12">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center justify-center gap-8">
             <Link href="/" className="flex items-center">
-              <Image 
-                src="/images/bk-drilling-logo.png" 
-                alt="BK DRILLING" 
-                width={400}
-                height={120}
-                className="h-28 w-auto"
+              <Image
+                src="/images/bk-drilling-logo.png"
+                alt="BK DRILLING"
+                width={600}
+                height={180}
+                className="h-44 w-auto"
                 priority
               />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-4">
+            <nav className="hidden lg:flex items-center gap-6">
               {/* SANDVIK Dropdown */}
-              <div 
+              <div
                 className="relative"
                 onMouseEnter={() => setShowSandvikDropdown(true)}
                 onMouseLeave={() => setShowSandvikDropdown(false)}
               >
-                <Link 
-                  href="/machines/sandvik" 
-                  className="text-sm font-medium text-white hover:text-orange-400 transition whitespace-nowrap uppercase"
+                <Link
+                  href="/machines/sandvik"
+                  className="text-sm font-bold text-white hover:text-orange-400 transition whitespace-nowrap uppercase"
                 >
                   SANDVIK
                 </Link>
@@ -63,14 +63,14 @@ export default function Header() {
               </div>
 
               {/* EPIROC Dropdown */}
-              <div 
+              <div
                 className="relative"
                 onMouseEnter={() => setShowEpirocDropdown(true)}
                 onMouseLeave={() => setShowEpirocDropdown(false)}
               >
-                <Link 
-                  href="/machines/epiroc" 
-                  className="text-sm font-medium text-white hover:text-yellow-400 transition whitespace-nowrap uppercase"
+                <Link
+                  href="/machines/epiroc"
+                  className="text-sm font-bold text-white hover:text-yellow-400 transition whitespace-nowrap uppercase"
                 >
                   EPIROC
                 </Link>
@@ -100,12 +100,12 @@ export default function Header() {
               </Link>
               
               {/* HYDRAULIC SERIES Dropdown */}
-              <div 
+              <div
                 className="relative"
                 onMouseEnter={() => setShowHydraulicDropdown(true)}
                 onMouseLeave={() => setShowHydraulicDropdown(false)}
               >
-                <button className="text-sm font-medium text-white hover:text-gray-300 transition whitespace-nowrap uppercase flex items-center gap-1">
+                <button className="text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase flex items-center gap-1">
                   HYDRAULIC SERIES
                   <ChevronDown size={16} />
                 </button>
@@ -125,12 +125,12 @@ export default function Header() {
               </div>
 
               {/* DRIFTERS SERIES Dropdown */}
-              <div 
+              <div
                 className="relative"
                 onMouseEnter={() => setShowDriftersDropdown(true)}
                 onMouseLeave={() => setShowDriftersDropdown(false)}
               >
-                <button className="text-sm font-medium text-white hover:text-gray-300 transition whitespace-nowrap uppercase flex items-center gap-1">
+                <button className="text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase flex items-center gap-1">
                   DRIFTERS SERIES
                   <ChevronDown size={16} />
                 </button>
@@ -149,15 +149,15 @@ export default function Header() {
                 )}
               </div>
 
-              <Link 
-                href="/about" 
-                className="text-sm font-medium text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
+              <Link
+                href="/about"
+                className="text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
               >
                 ABOUT US
               </Link>
-              <Link 
-                href="/contact" 
-                className="text-sm font-medium text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
+              <Link
+                href="/contact"
+                className="text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
               >
                 CONTACT
               </Link>
