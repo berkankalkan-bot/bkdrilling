@@ -18,96 +18,36 @@ export default function Header() {
     <header className="w-full bg-white shadow-sm">
       {/* Main Header - Logo + Navigation */}
       <div className="bg-black">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-center gap-8">
-            <Link href="/" className="flex items-center">
+        <div className="container mx-auto px-2 md:px-4 py-2 md:py-3">
+          <div className="flex flex-row items-center justify-center gap-0 md:gap-8">
+            <Link href="/" className="flex items-center flex-shrink-0 self-center mt-5 md:mt-8">
               <Image
                 src="/images/bk-drilling-logo.png"
                 alt="BK DRILLING"
-                width={600}
-                height={180}
-                className="h-44 w-auto"
+                width={650}
+                height={195}
+                className="h-28 md:h-40 w-auto"
                 priority
               />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-6">
-              {/* SANDVIK Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => setShowSandvikDropdown(true)}
-                onMouseLeave={() => setShowSandvikDropdown(false)}
-              >
-                <Link
-                  href="/machines/sandvik"
-                  className="text-sm font-bold text-white hover:text-orange-400 transition whitespace-nowrap uppercase"
-                >
-                  SANDVIK
-                </Link>
-                {showSandvikDropdown && (
-                  <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded w-48 z-50">
-                    <Link 
-                      href="/machines/sandvik/surface" 
-                      className="block px-4 py-3 text-sm text-black hover:bg-orange-50 border-b"
-                    >
-                      Surface Drilling
-                    </Link>
-                    <Link 
-                      href="/machines/sandvik/underground" 
-                      className="block px-4 py-3 text-sm text-black hover:bg-orange-50"
-                    >
-                      Underground Drilling
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* EPIROC Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => setShowEpirocDropdown(true)}
-                onMouseLeave={() => setShowEpirocDropdown(false)}
-              >
-                <Link
-                  href="/machines/epiroc"
-                  className="text-sm font-bold text-white hover:text-yellow-400 transition whitespace-nowrap uppercase"
-                >
-                  EPIROC
-                </Link>
-                {showEpirocDropdown && (
-                  <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded w-48 z-50">
-                    <Link 
-                      href="/machines/epiroc/surface" 
-                      className="block px-4 py-3 text-sm text-black hover:bg-yellow-50 border-b"
-                    >
-                      Surface Drilling
-                    </Link>
-                    <Link 
-                      href="/machines/epiroc/underground" 
-                      className="block px-4 py-3 text-sm text-black hover:bg-yellow-50"
-                    >
-                      Underground Drilling
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-              <Link 
-                href="/spare-parts" 
-                className="text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
+            <nav className="flex flex-nowrap items-center justify-start gap-1 md:gap-6 overflow-x-auto scrollbar-hide -ml-8 md:ml-0 self-center">
+              <Link
+                href="/spare-parts"
+                className="text-[9px] md:text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
               >
                 SPARE PARTS
               </Link>
-              
-              {/* HYDRAULIC SERIES Dropdown */}
+
+              {/* HYDRAULIC DRIFTER SERIES Dropdown */}
               <div
                 className="relative"
                 onMouseEnter={() => setShowHydraulicDropdown(true)}
                 onMouseLeave={() => setShowHydraulicDropdown(false)}
               >
-                <button className="text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase flex items-center gap-1">
-                  HYDRAULIC SERIES
-                  <ChevronDown size={16} />
+                <button className="text-[9px] md:text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase flex items-center gap-1">
+                  HYDRAULIC DRIFTER SERIES
+                  <ChevronDown className="hidden md:inline" size={16} />
                 </button>
                 {showHydraulicDropdown && (
                   <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded w-48 z-50">
@@ -117,25 +57,9 @@ export default function Header() {
                     <Link href="/hydraulic/pumps" className="block px-4 py-3 text-sm text-black hover:bg-slate-50 border-b">
                       Hydraulic Pumps
                     </Link>
-                    <Link href="/hydraulic/valves" className="block px-4 py-3 text-sm text-black hover:bg-slate-50">
+                    <Link href="/hydraulic/valves" className="block px-4 py-3 text-sm text-black hover:bg-slate-50 border-b">
                       Valves & Cylinders
                     </Link>
-                  </div>
-                )}
-              </div>
-
-              {/* DRIFTERS SERIES Dropdown */}
-              <div
-                className="relative"
-                onMouseEnter={() => setShowDriftersDropdown(true)}
-                onMouseLeave={() => setShowDriftersDropdown(false)}
-              >
-                <button className="text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase flex items-center gap-1">
-                  DRIFTERS SERIES
-                  <ChevronDown size={16} />
-                </button>
-                {showDriftersDropdown && (
-                  <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded w-48 z-50">
                     <Link href="/drifters/cop" className="block px-4 py-3 text-sm text-black hover:bg-slate-50 border-b">
                       COP Series
                     </Link>
@@ -151,27 +75,17 @@ export default function Header() {
 
               <Link
                 href="/about"
-                className="text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
+                className="text-[9px] md:text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
               >
                 ABOUT US
               </Link>
               <Link
                 href="/contact"
-                className="text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
+                className="text-[9px] md:text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
               >
                 CONTACT
               </Link>
             </nav>
-
-            {/* Mobile Menu Button */}
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden text-white hover:text-gray-300"
-            >
-              <Menu size={24} />
-            </Button>
           </div>
         </div>
       </div>
@@ -184,34 +98,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex flex-col gap-3">
-              <Link href="/machines" className="text-sm font-medium hover:text-gray-600">
-                MACHINES
-              </Link>
-              <Link href="/spare-parts" className="text-sm font-bold hover:text-gray-600">
-                SPARE PARTS
-              </Link>
-              <Link href="/hydraulic" className="text-sm font-medium hover:text-gray-600">
-                HYDRAULIC
-              </Link>
-              <Link href="/drifters" className="text-sm font-medium hover:text-gray-600">
-                DRIFTERS
-              </Link>
-              <Link href="/about" className="text-sm font-medium hover:text-gray-600">
-                ABOUT US
-              </Link>
-              <Link href="/contact" className="text-sm font-medium hover:text-gray-600">
-                CONTACT
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   );
 }

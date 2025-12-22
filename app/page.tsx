@@ -1,9 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 export default function Home() {
+  const [activeSandvikSection, setActiveSandvikSection] = useState<string | null>(null);
+  const [activeEpirocSection, setActiveEpirocSection] = useState<string | null>(null);
+
   return (
     <div className="w-full">
 
@@ -11,7 +17,7 @@ export default function Home() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">Select Your Preferred Category</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">Select Your Drilling Machine Brand</h2>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -30,16 +36,17 @@ export default function Home() {
                   {/* Split Hover Effect - Çok hızlı kopma */}
                   <Link
                     href="/machines/sandvik/surface"
-                    className="absolute top-0 left-0 w-full h-[calc(50%+2px)] bg-[#FF6B6B]/0 hover:bg-[#FF6B6B]/100 transition-all duration-100 flex items-center justify-center group z-40 hover:translate-y-[-10px]"
+                    onTouchStart={() => setActiveSandvikSection(activeSandvikSection === 'surface' ? null : 'surface')}
+                    className={`absolute top-0 left-0 w-full h-[calc(50%+2px)] ${activeSandvikSection === 'surface' ? 'bg-[#FF6B6B]/100' : 'bg-[#FF6B6B]/0'} md:bg-[#FF6B6B]/0 md:hover:bg-[#FF6B6B]/100 transition-all duration-100 flex items-center justify-center group z-40 md:hover:translate-y-[-10px]`}
                   >
                     <div className="flex flex-col items-center justify-start max-w-full px-2 h-full pt-2">
                       <img
                         src="/images/surface-drill.png"
                         alt="Surface Drill"
-                        className="w-auto md:w-[600px] max-h-[90%] object-contain drop-shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-6"
+                        className={`w-auto md:w-[600px] max-h-[90%] object-contain drop-shadow-xl ${activeSandvikSection === 'surface' ? 'opacity-100' : 'opacity-0'} md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-6`}
                         style={{ background: 'none' }}
                       />
-                      <span className="text-white text-xl md:text-2xl font-bold tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg">
+                      <span className={`text-white text-xl md:text-2xl font-bold tracking-wider ${activeSandvikSection === 'surface' ? 'opacity-100' : 'opacity-0'} md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg`}>
                         Surface Drilling
                       </span>
                     </div>
@@ -47,16 +54,17 @@ export default function Home() {
                   
                   <Link
                     href="/machines/sandvik/underground"
-                    className="absolute bottom-0 left-0 w-full h-[calc(50%+2px)] bg-[#8B0000]/0 hover:bg-[#8B0000]/100 transition-all duration-100 flex items-center justify-center group z-40 hover:translate-y-[10px]"
+                    onTouchStart={() => setActiveSandvikSection(activeSandvikSection === 'underground' ? null : 'underground')}
+                    className={`absolute bottom-0 left-0 w-full h-[calc(50%+2px)] ${activeSandvikSection === 'underground' ? 'bg-[#8B0000]/100' : 'bg-[#8B0000]/0'} md:bg-[#8B0000]/0 md:hover:bg-[#8B0000]/100 transition-all duration-100 flex items-center justify-center group z-40 md:hover:translate-y-[10px]`}
                   >
                     <div className="flex flex-col items-center justify-start max-w-full px-2 h-full -mt-4">
                       <img
                         src="/images/underground-drill.png"
                         alt="Underground Drill"
-                        className="w-auto md:w-[720px] max-h-[98%] object-contain drop-shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-12"
+                        className={`w-auto md:w-[720px] max-h-[98%] object-contain drop-shadow-xl ${activeSandvikSection === 'underground' ? 'opacity-100' : 'opacity-0'} md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-12`}
                         style={{ background: 'none' }}
                       />
-                      <span className="text-white text-xl md:text-2xl font-bold tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg">
+                      <span className={`text-white text-xl md:text-2xl font-bold tracking-wider ${activeSandvikSection === 'underground' ? 'opacity-100' : 'opacity-0'} md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg`}>
                         Underground Drilling
                       </span>
                     </div>
@@ -80,16 +88,17 @@ export default function Home() {
                   {/* Split Hover Effect - Çok hızlı kopma */}
                   <Link
                     href="/machines/epiroc/surface"
-                    className="absolute top-0 left-0 w-full h-[calc(50%+2px)] bg-[#FCD34D]/0 hover:bg-[#FCD34D]/60 transition-all duration-100 flex items-center justify-center group z-40 hover:translate-y-[-10px]"
+                    onTouchStart={() => setActiveEpirocSection(activeEpirocSection === 'surface' ? null : 'surface')}
+                    className={`absolute top-0 left-0 w-full h-[calc(50%+2px)] ${activeEpirocSection === 'surface' ? 'bg-[#FCD34D]/60' : 'bg-[#FCD34D]/0'} md:bg-[#FCD34D]/0 md:hover:bg-[#FCD34D]/60 transition-all duration-100 flex items-center justify-center group z-40 md:hover:translate-y-[-10px]`}
                   >
                     <div className="flex flex-col items-center justify-start max-w-full px-2 h-full pt-2">
                       <img
                         src="/images/epiroc-surface-drill.png"
                         alt="Surface Drill"
-                        className="w-auto md:w-[600px] max-h-[90%] object-contain drop-shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-6"
+                        className={`w-auto md:w-[600px] max-h-[90%] object-contain drop-shadow-xl ${activeEpirocSection === 'surface' ? 'opacity-100' : 'opacity-0'} md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-6`}
                         style={{ background: 'none' }}
                       />
-                      <span className="text-white text-xl md:text-2xl font-bold tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg">
+                      <span className={`text-white text-xl md:text-2xl font-bold tracking-wider ${activeEpirocSection === 'surface' ? 'opacity-100' : 'opacity-0'} md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg`}>
                         Surface Drilling
                       </span>
                     </div>
@@ -97,16 +106,17 @@ export default function Home() {
 
                   <Link
                     href="/machines/epiroc/underground"
-                    className="absolute bottom-0 left-0 w-full h-[calc(50%+2px)] bg-[#92400E]/0 hover:bg-[#92400E]/100 transition-all duration-100 flex items-center justify-center group z-40 hover:translate-y-[10px]"
+                    onTouchStart={() => setActiveEpirocSection(activeEpirocSection === 'underground' ? null : 'underground')}
+                    className={`absolute bottom-0 left-0 w-full h-[calc(50%+2px)] ${activeEpirocSection === 'underground' ? 'bg-[#92400E]/100' : 'bg-[#92400E]/0'} md:bg-[#92400E]/0 md:hover:bg-[#92400E]/100 transition-all duration-100 flex items-center justify-center group z-40 md:hover:translate-y-[10px]`}
                   >
                     <div className="flex flex-col items-center justify-start max-w-full px-2 h-full -mt-4">
                       <img
                         src="/images/epiroc-underground-drill.png"
                         alt="Underground Drill"
-                        className="w-auto md:w-[720px] max-h-[98%] object-contain drop-shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-12"
+                        className={`w-auto md:w-[720px] max-h-[98%] object-contain drop-shadow-xl ${activeEpirocSection === 'underground' ? 'opacity-100' : 'opacity-0'} md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 z-50 -mb-12`}
                         style={{ background: 'none' }}
                       />
-                      <span className="text-white text-xl md:text-2xl font-bold tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg">
+                      <span className={`text-white text-xl md:text-2xl font-bold tracking-wider ${activeEpirocSection === 'underground' ? 'opacity-100' : 'opacity-0'} md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 text-center z-50 drop-shadow-lg`}>
                         Underground Drilling
                       </span>
                     </div>
@@ -118,24 +128,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video Section - Kartların Altında */}
-      <section className="relative text-white overflow-hidden min-h-[400px] flex items-center justify-center">
-        <video 
-          autoPlay 
-          loop 
-          muted 
+      {/* Video Section - 21:9 Format */}
+      <section className="relative text-white overflow-hidden h-[500px] md:h-[600px] flex items-center justify-center bg-black">
+        <video
+          autoPlay
+          loop
+          muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
-          style={{objectPosition: 'top'}}
         >
           <source src="/images/hero-video.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10"></div>
-        <div className="relative z-20 flex flex-col items-center justify-center w-full h-full min-h-[400px] py-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg text-center">
-            Professional Drilling Solutions
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center w-full h-full py-16 px-4">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl text-center text-white">
+            Best Drilling Solutions
           </h2>
-          <p className="text-lg md:text-xl text-white/90 drop-shadow-md text-center max-w-2xl">
+          <p className="text-sm md:text-2xl text-white drop-shadow-xl text-center max-w-5xl px-6">
             Discover our range of high-quality drilling equipment and spare parts
           </p>
         </div>
