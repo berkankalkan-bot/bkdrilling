@@ -29,16 +29,24 @@ jobs:
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: Deploy to FTP via lftp
+      - name: Test FTP Connection
         run: |
-          lftp -c "
-          set ssl:verify-certificate no;
-          set ftp:ssl-allow yes;
-          set ftp:ssl-protect-data yes;
-          set net:timeout 10;
-          set net:max-retries 2;
-          set net:reconnect-interval-base 5;
-          open ftp://${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_SERVER }};
-          mirror --reverse --verbose --parallel=3 ./out /public_html;
-          bye;
+          echo "Testing FTP connection to: ${{ secrets.FTP_SERVER }}"
+          timeout 30 nc -zv ${{ secrets.FTP_SERVER }} 21 || echo "Port 21 unreachable, trying other methods..."
+
+      - name: Deploy to FTP via lftp
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -e "
+          set ssl:verify-certificate false;
+          set ftp:ssl-force false;
+          set ftp:ssl-allow true;
+          open -u $FTP_USER,$FTP_PASS $FTP_SERVER;
+          cd /public_html || mkdir -p /public_html;
+          lcd ./out;
+          mirror --reverse --verbose --parallel=2 --use-cache;
+          quit;
           "
