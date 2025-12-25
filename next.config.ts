@@ -13,8 +13,9 @@ const nextConfig: NextConfig = {
   // Compression
   compress: true,
   
-  // Static optimization
-  output: 'standalone',
+  // Static export for hosting without Node.js
+  output: 'export',
+  trailingSlash: true,
   
   // Experimental features for speed
   experimental: {
