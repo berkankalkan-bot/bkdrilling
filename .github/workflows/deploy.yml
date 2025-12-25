@@ -26,27 +26,26 @@ jobs:
       - name: Build Next.js static site
         run: npm run build
 
-      - name: Install lftp
-        run: sudo apt-get update && sudo apt-get install -y lftp
+      - name: Install Node FTP Deploy
+        run: npm install -g ftp-deploy
 
-      - name: Test FTP Connection
+      - name: Create FTP Deploy Config
         run: |
-          echo "Testing FTP connection to: ${{ secrets.FTP_SERVER }}"
-          timeout 30 nc -zv ${{ secrets.FTP_SERVER }} 21 || echo "Port 21 unreachable, trying other methods..."
+          cat > ftp-config.json << 'EOF'
+          {
+            "host": "${{ secrets.FTP_SERVER }}",
+            "port": 21,
+            "user": "${{ secrets.FTP_USERNAME }}",
+            "password": "${{ secrets.FTP_PASSWORD }}",
+            "localRoot": "./out",
+            "remoteRoot": "/public_html/",
+            "include": ["*", "**/*"],
+            "deleteRemote": false,
+            "forcePasv": true,
+            "sftp": false
+          }
+          EOF
 
-      - name: Deploy to FTP via lftp
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USER: ${{ secrets.FTP_USERNAME }}
-          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+      - name: Deploy to FTP
         run: |
-          lftp -e "
-          set ssl:verify-certificate false;
-          set ftp:ssl-force false;
-          set ftp:ssl-allow true;
-          open -u $FTP_USER,$FTP_PASS $FTP_SERVER;
-          cd /public_html || mkdir -p /public_html;
-          lcd ./out;
-          mirror --reverse --verbose --parallel=2 --use-cache;
-          quit;
-          "
+          npx ftp-deploy --config ftp-config.json --verbose
