@@ -13,6 +13,7 @@
 
 const FtpDeploy = require('ftp-deploy');
 const ftpDeploy = new FtpDeploy();
+require('dotenv').config({ path: '.env.local' });
 
 // FTP Configuration
 const config = {

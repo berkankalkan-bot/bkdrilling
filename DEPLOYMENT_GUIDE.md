@@ -1,32 +1,131 @@
 # Deployment Rehberi - BK Drilling
 
-## 🚀 Otomatik Deployment
+## ⚠️ Önemli Not
 
-### İlk Kurulum
+Güzelhosting FTP portları lokal ve GitHub Actions'dan bloklu olduğu için **otomatik deployment çalışmıyor**.
+Manuel deployment yöntemi kullanılmalıdır.
 
-1. `.env.local` dosyası oluşturun:
-```bash
-cp .env.local.example .env.local
-```
+## 📦 Manuel Deployment (Çalışan Yöntem)
 
-2. FTP şifrenizi `.env.local`'e ekleyin:
-```env
-FTP_SERVER=ftp.bkdrilling.com
-FTP_USERNAME=github-actions@bkdrilling.com
-FTP_PASSWORD=BURAYA_FTP_ŞİFRENİZİ_YAZIN
-```
+### Adım 1: Build Alın
 
-### Canlıya Deployment
+Terminal'de (VSCode içinde Ctrl+`):
 
 ```bash
+npm run build
+```
+
+Build tamamlanana kadar bekleyin (~10 saniye).
+
+---
+
+### Adım 2: Out Klasörünü Sıkıştırın
+
+**PowerShell** ile (Önerilen):
+
+```powershell
+Compress-Archive -Path .\out\* -DestinationPath out.zip -Force
+```
+
+**VEYA Windows Explorer** ile:
+1. `out` klasörüne sağ tıklayın
+2. "Sıkıştırılmış (zipped) klasöre gönder" seçin
+3. `out.zip` oluşacak
+
+---
+
+### Adım 3: cPanel File Manager'ı Açın
+
+1. Güzelhosting cPanel'e giriş yapın
+2. **"File Manager"** (Dosya Yöneticisi) açın
+3. Sol taraftan **`public_html`** klasörüne tıklayın
+
+---
+
+### Adım 4: Eski Dosyaları Temizleyin (İlk Defa İseniz Atlayın)
+
+Güncelleme yapıyorsanız:
+1. `public_html` içindeki **eski Next.js dosyalarını** seçin
+2. Delete (Sil) butonuna tıklayın
+3. **DİKKAT:** `.htaccess`, `cgi-bin` gibi sistem dosyalarını SİLMEYİN!
+
+**Güvenli Yöntem:** Yeni `backup` klasörü oluşturup eski dosyaları oraya taşıyın.
+
+---
+
+### Adım 5: ZIP Dosyasını Yükleyin
+
+File Manager'da:
+1. Üst menüde **"Upload"** (Yükle) butonuna tıklayın
+2. **"Dosya Seç"** butonuna tıklayın
+3. `C:\Users\berka\Desktop\projects\bk_drilling_web\out.zip` dosyasını seçin
+4. Yükleme başlayacak (~10-30 saniye, 12MB)
+5. Tamamlandığında File Manager'a dönün
+
+---
+
+### Adım 6: ZIP Dosyasını Extract Edin
+
+File Manager'da (`public_html` içinde):
+1. `out.zip` dosyasını bulun
+2. **Sağ tıklayın** > **"Extract"** (Çıkart) seçin
+3. Extract penceresi açılır, **"Extract Files"** butonuna tıklayın
+4. İşlem bitince `out` klasörü oluşacak
+
+---
+
+### Adım 7: Dosyaları Taşıyın
+
+1. `out` klasörüne **çift tıklayarak** içine girin
+2. **"Select All"** (Tümünü Seç) butonuna tıklayın
+   - VEYA **Ctrl+A** tuşlarına basın
+3. **"Move"** (Taşı) butonuna tıklayın
+4. Açılan pencerede hedef klasör:
+   ```
+   /home/bkdrilli/public_html/
+   ```
+5. **"Move Files"** butonuna tıklayın
+6. Onaylayın
+
+---
+
+### Adım 8: Temizlik Yapın
+
+File Manager'da `public_html` klasörüne dönün:
+1. Boş kalan **`out`** klasörünü silin
+2. **`out.zip`** dosyasını silin
+
+---
+
+### Adım 9: Siteyi Test Edin ✅
+
+Tarayıcıda yeni sekme açıp:
+
+```
+http://bkdrilling.com
+```
+
+**Yeni değişiklikler görünmüyorsa:**
+- Tarayıcı cache'ini temizleyin (Ctrl+Shift+Delete)
+- Veya gizli sekme (Incognito) açın
+- Veya farklı tarayıcı deneyin
+
+Site güncellenmiş olmalı! 🎉
+
+---
+
+## ~~🚀 Otomatik Deployment~~ (Çalışmıyor)
+
+~~### İlk Kurulum~~
+
+**NOT:** Güzelhosting FTP portları bloklu olduğu için bu yöntem çalışmıyor.
+Manuel deployment kullanın.
+
+~~```bash
 npm run deploy
-```
+```~~
 
-Bu komut:
-1. ✅ Next.js projesini build eder
-2. ✅ Tüm dosyaları FTP ile yükler
-3. ✅ İlerlemeyi gösterir
-4. ✅ Bitti mesajı verir
+**Hata:** `connect: Timeout while connecting to server`
 
 ---
 
