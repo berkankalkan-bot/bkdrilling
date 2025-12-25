@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/bkdrilli/public_html/
+    - /bin/bash $DEPLOYPATH/deploy.sh
