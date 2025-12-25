@@ -35,7 +35,8 @@ jobs:
           local-dir: ./out/
           server-dir: /public_html/
           port: 21
-          protocol: ftp
+          protocol: ftps
+          security: loose
           log-level: verbose
           dangerous-clean-slate: false
           exclude: |
