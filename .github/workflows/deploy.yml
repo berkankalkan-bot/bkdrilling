@@ -35,7 +35,10 @@ jobs:
           set ssl:verify-certificate no;
           set ftp:ssl-allow yes;
           set ftp:ssl-protect-data yes;
+          set net:timeout 10;
+          set net:max-retries 2;
+          set net:reconnect-interval-base 5;
           open ftp://${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_SERVER }};
-          mirror --reverse --delete --verbose --exclude .git/ --exclude node_modules/ ./out /public_html;
+          mirror --reverse --verbose --parallel=3 ./out /public_html;
           bye;
           "
