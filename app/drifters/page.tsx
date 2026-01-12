@@ -1,8 +1,18 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { allProducts } from "@/lib/data";
 import { ArrowLeft, Filter, Package } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Drifters ve Rock Drill Yedek Parçaları",
+  description:
+    "COP serileri, piston, chuck, silindir ve kaya delici (drifter/rock drill) yedek parçaları. Parça kodu ile hızlı tedarik.",
+  alternates: {
+    canonical: "/drifters",
+  },
+};
 
 export default function DriftersPage() {
   // Rock Drills kategorisindeki ürünleri filtrele (Drifters olarak)

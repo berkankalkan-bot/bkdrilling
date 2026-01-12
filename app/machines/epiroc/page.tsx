@@ -1,8 +1,18 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { allProducts } from "@/lib/data";
 import { ArrowLeft, Package } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Epiroc (Atlas Copco) Yedek Parçaları",
+  description:
+    "Epiroc / Atlas Copco sondaj ekipmanları için yedek parçalar. Model bazında listeleme ve parça kodu ile hızlı tedarik.",
+  alternates: {
+    canonical: "/machines/epiroc",
+  },
+};
 
 export default function EpirocPage() {
   // Epiroc ürünlerini filtrele (şu an data'da yok, örnek göstermek için Atlas Copco gösterelim)

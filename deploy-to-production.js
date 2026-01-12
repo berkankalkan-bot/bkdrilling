@@ -22,7 +22,7 @@ const config = {
   host: process.env.FTP_SERVER || 'ftp.bkdrilling.com',
   port: 21,
   localRoot: './out',
-  remoteRoot: '/public_html/',
+  remoteRoot: '/var/www/www-root/data/www/www.bkdrilling.com/',
   include: ['*', '**/*'],
   exclude: [
     '**/*.map',

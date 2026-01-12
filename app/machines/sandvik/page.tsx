@@ -1,8 +1,18 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { allProducts } from "@/lib/data";
 import { ArrowLeft, Package } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Sandvik Yedek Parçaları",
+  description:
+    "Sandvik sondaj makineleri için yedek parçalar. Model bazında listeleme, parça kodu ve stok kataloğu.",
+  alternates: {
+    canonical: "/machines/sandvik",
+  },
+};
 
 export default function SandvikPage() {
   // Sandvik ürünlerini filtrele

@@ -1,8 +1,18 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { allProducts } from "@/lib/data";
 import { ArrowLeft, Filter, Package } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Hidrolik Yedek Parçalar",
+  description:
+    "Hidrolik motor, pompa, valf, silindir ve aksesuar yedek parçaları. Marka/model ve parça kodu ile hızlı tedarik.",
+  alternates: {
+    canonical: "/hydraulic",
+  },
+};
 
 export default function HydraulicPage() {
   // Hydraulic kategorisindeki ürünleri filtrele
