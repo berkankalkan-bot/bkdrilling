@@ -3,6 +3,7 @@ import { Quicksand } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import UnderConstructionOverlay from "@/components/UnderConstructionOverlay";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -93,6 +94,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${quicksand.className} antialiased`}>
+        {/* Under Construction Overlay - Remove this when site is ready */}
+        <UnderConstructionOverlay />
+
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
