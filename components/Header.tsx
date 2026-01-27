@@ -13,13 +13,14 @@ export default function Header() {
   const [showEpirocDropdown, setShowEpirocDropdown] = useState(false);
   const [showHydraulicDropdown, setShowHydraulicDropdown] = useState(false);
   const [showDriftersDropdown, setShowDriftersDropdown] = useState(false);
+  const [showSparePartsDropdown, setShowSparePartsDropdown] = useState(false);
 
   return (
-    <header className="w-full bg-white shadow-sm">
+    <header className="w-full bg-white shadow-sm relative z-50">
       {/* Main Header - Logo + Navigation */}
-      <div className="bg-black">
-        <div className="container mx-auto px-2 md:px-4 py-2 md:py-3">
-          <div className="flex flex-row items-center justify-center gap-0 md:gap-8">
+      <div className="bg-black overflow-visible">
+        <div className="container mx-auto px-2 md:px-4 py-2 md:py-3 overflow-visible">
+          <div className="flex flex-row items-center justify-center gap-0 md:gap-8 overflow-visible">
             <Link href="/" className="flex items-center flex-shrink-0 self-center mt-5 md:mt-8">
               <Image
                 src="/images/bk-drilling-logo.png"
@@ -31,13 +32,33 @@ export default function Header() {
               />
             </Link>
 
-            <nav className="flex flex-nowrap items-center justify-start gap-1 md:gap-6 overflow-x-auto scrollbar-hide -ml-8 md:ml-0 self-center">
-              <Link
-                href="/spare-parts"
-                className="text-[9px] md:text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase"
+            <nav className="flex flex-nowrap items-center justify-start gap-1 md:gap-6 -ml-8 md:ml-0 self-center">
+              {/* SPARE PARTS Dropdown - SANDVIK/EPIROC Style */}
+              <div
+                className="relative"
+                onMouseEnter={() => setShowSparePartsDropdown(true)}
+                onMouseLeave={() => setShowSparePartsDropdown(false)}
               >
-                SPARE PARTS
-              </Link>
+                <button className="text-[9px] md:text-sm font-bold text-white hover:text-gray-300 transition whitespace-nowrap uppercase flex items-center gap-1">
+                  SPARE PARTS
+                  <ChevronDown className="hidden md:inline" size={16} />
+                </button>
+                {showSparePartsDropdown && (
+                  <div className="absolute top-full left-0 pt-2 w-48 z-50">
+                    <div className="bg-black/95 shadow-lg rounded border border-gray-700">
+                      <Link href="/spare-parts/sandvik" className="block px-4 py-3 text-sm text-white hover:bg-gray-800 border-b border-gray-700">
+                        SANDVIK
+                      </Link>
+                      <Link href="/spare-parts/epiroc" className="block px-4 py-3 text-sm text-white hover:bg-gray-800 border-b border-gray-700">
+                        EPIROC
+                      </Link>
+                      <Link href="/spare-parts" className="block px-4 py-3 text-sm text-white hover:bg-gray-800">
+                        All Spare Parts
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
 
               {/* HYDRAULIC DRIFTER SERIES Dropdown */}
               <div
@@ -50,25 +71,27 @@ export default function Header() {
                   <ChevronDown className="hidden md:inline" size={16} />
                 </button>
                 {showHydraulicDropdown && (
-                  <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded w-48 z-50">
-                    <Link href="/hydraulic/motors" className="block px-4 py-3 text-sm text-black hover:bg-slate-50 border-b">
-                      Hydraulic Motors
-                    </Link>
-                    <Link href="/hydraulic/pumps" className="block px-4 py-3 text-sm text-black hover:bg-slate-50 border-b">
-                      Hydraulic Pumps
-                    </Link>
-                    <Link href="/hydraulic/valves" className="block px-4 py-3 text-sm text-black hover:bg-slate-50 border-b">
-                      Valves & Cylinders
-                    </Link>
-                    <Link href="/drifters/cop" className="block px-4 py-3 text-sm text-black hover:bg-slate-50 border-b">
-                      COP Series
-                    </Link>
-                    <Link href="/drifters/pistons" className="block px-4 py-3 text-sm text-black hover:bg-slate-50 border-b">
-                      Pistons & Chucks
-                    </Link>
-                    <Link href="/drifters/rock-drills" className="block px-4 py-3 text-sm text-black hover:bg-slate-50">
-                      Rock Drills
-                    </Link>
+                  <div className="absolute top-full left-0 pt-2 w-48 z-50">
+                    <div className="bg-black/95 shadow-lg rounded border border-gray-700">
+                      <Link href="/hydraulic/motors" className="block px-4 py-3 text-sm text-white hover:bg-gray-800 border-b border-gray-700">
+                        Hydraulic Motors
+                      </Link>
+                      <Link href="/hydraulic/pumps" className="block px-4 py-3 text-sm text-white hover:bg-gray-800 border-b border-gray-700">
+                        Hydraulic Pumps
+                      </Link>
+                      <Link href="/hydraulic/valves" className="block px-4 py-3 text-sm text-white hover:bg-gray-800 border-b border-gray-700">
+                        Valves & Cylinders
+                      </Link>
+                      <Link href="/drifters/cop" className="block px-4 py-3 text-sm text-white hover:bg-gray-800 border-b border-gray-700">
+                        COP Series
+                      </Link>
+                      <Link href="/drifters/pistons" className="block px-4 py-3 text-sm text-white hover:bg-gray-800 border-b border-gray-700">
+                        Pistons & Chucks
+                      </Link>
+                      <Link href="/drifters/rock-drills" className="block px-4 py-3 text-sm text-white hover:bg-gray-800">
+                        Rock Drills
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>

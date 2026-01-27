@@ -35,7 +35,7 @@ export default function Home() {
                   
                   {/* Split Hover Effect - Çok hızlı kopma */}
                   <Link
-                    href="/machines/sandvik/surface"
+                    href="/spare-parts/sandvik?category=surface"
                     onTouchStart={() => setActiveSandvikSection(activeSandvikSection === 'surface' ? null : 'surface')}
                     className={`absolute top-0 left-0 w-full h-[calc(50%+2px)] ${activeSandvikSection === 'surface' ? 'bg-[#FF6B6B]/100' : 'bg-[#FF6B6B]/0'} md:bg-[#FF6B6B]/0 md:hover:bg-[#FF6B6B]/100 transition-all duration-100 flex items-center justify-center group z-40 md:hover:translate-y-[-10px]`}
                   >
@@ -53,7 +53,7 @@ export default function Home() {
                   </Link>
                   
                   <Link
-                    href="/machines/sandvik/underground"
+                    href="/spare-parts/sandvik?category=underground"
                     onTouchStart={() => setActiveSandvikSection(activeSandvikSection === 'underground' ? null : 'underground')}
                     className={`absolute bottom-0 left-0 w-full h-[calc(50%+2px)] ${activeSandvikSection === 'underground' ? 'bg-[#8B0000]/100' : 'bg-[#8B0000]/0'} md:bg-[#8B0000]/0 md:hover:bg-[#8B0000]/100 transition-all duration-100 flex items-center justify-center group z-40 md:hover:translate-y-[10px]`}
                   >
@@ -128,60 +128,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video Section - 21:9 Format */}
-      <section className="relative text-white overflow-hidden h-[500px] md:h-[600px] flex items-center justify-center bg-black">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="/images/hero-video.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center w-full h-full py-16 px-4">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl text-center text-white">
-            Best Drilling Solutions
-          </h2>
-          <p className="text-sm md:text-2xl text-white drop-shadow-xl text-center max-w-5xl px-6">
-            Discover our range of high-quality drilling equipment and spare parts
-          </p>
-        </div>
-      </section>
-
       {/* Quick Links - Simplified */}
       <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <Link href="/hydraulic">
+            <Link href="/second-hand-parts">
               <Card className="hover:shadow-xl transition-all hover:-translate-y-1 h-full">
                 <CardContent className="p-8 text-center">
-                  <div className="text-5xl mb-4">💧</div>
-                  <h3 className="font-bold text-xl mb-2">Hydraulic</h3>
-                  <p className="text-sm text-slate-600">Motors, Pumps & Valves</p>
+                  <div className="text-5xl mb-4">🔄</div>
+                  <h3 className="font-bold text-xl mb-2">Second Hand Parts</h3>
+                  <p className="text-sm text-slate-600">Quality Used Equipment</p>
                 </CardContent>
               </Card>
             </Link>
 
-            <Link href="/drifters">
+            <Link href="/compressors">
               <Card className="hover:shadow-xl transition-all hover:-translate-y-1 h-full">
                 <CardContent className="p-8 text-center">
-                  <div className="text-5xl mb-4">🔨</div>
-                  <h3 className="font-bold text-xl mb-2">Drifters</h3>
-                  <p className="text-sm text-slate-600">Rock Drill Components</p>
+                  <div className="text-5xl mb-4">🌀</div>
+                  <h3 className="font-bold text-xl mb-2">Compressors</h3>
+                  <p className="text-sm text-slate-600">Air Compressor Systems</p>
                 </CardContent>
               </Card>
             </Link>
 
-            <Link href="/spare-parts">
+            <Link href="/catalogue">
               <Card className="hover:shadow-xl transition-all hover:-translate-y-1 h-full">
                 <CardContent className="p-8 text-center">
-                  <div className="text-5xl mb-4">⚙️</div>
-                  <h3 className="font-bold text-xl mb-2">All Parts</h3>
-                  <p className="text-sm text-slate-600">Complete Catalog</p>
+                  <div className="text-5xl mb-4">📖</div>
+                  <h3 className="font-bold text-xl mb-2">All Parts Catalogue</h3>
+                  <p className="text-sm text-slate-600">Complete Product List</p>
                 </CardContent>
               </Card>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Trademark Disclaimer */}
+      <section className="bg-black py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-[1px] w-12 bg-gray-700"></div>
+              <span className="text-gray-400 text-sm font-semibold tracking-widest uppercase">Disclaimer</span>
+              <div className="h-[1px] w-12 bg-gray-700"></div>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Sandvik, Epiroc, Atlas Copco and Tamrock are registered trademarks of their respective owners.
+              BK Drilling is an independent supplier and is not affiliated with, endorsed by, or authorized by
+              any of these manufacturers. All brand names, part numbers, and product references are used solely
+              for identification and compatibility purposes.
+            </p>
           </div>
         </div>
       </section>
