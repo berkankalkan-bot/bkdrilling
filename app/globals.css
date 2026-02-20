@@ -194,6 +194,10 @@
 .animate-puff-right-1 { animation: puff-right-1 0.9s ease-out infinite; }
 .animate-puff-right-2 { animation: puff-right-2 1.0s ease-out infinite 0.15s; }
 .animate-puff-right-3 { animation: puff-right-3 0.75s ease-out infinite 0.3s; }
+/* Boom 2 offset — desync from Boom 1 */
+.animate-puff-right-1-d { animation: puff-right-1 0.9s ease-out infinite 0.45s; }
+.animate-puff-right-2-d { animation: puff-right-2 1.0s ease-out infinite 0.6s; }
+.animate-puff-right-3-d { animation: puff-right-3 0.75s ease-out infinite 0.75s; }
 
 /* ═══ Rock Fragments — surface drill (parabolic arcs with GRAVITY) ═══ */
 /* Rocks launch upward & sideways, then arc downward due to gravity */
