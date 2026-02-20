@@ -12,7 +12,7 @@
 - Ana sayfa (page.tsx) çalışıyor — premium brand kartları + efektler
 - Under Construction overlay KAPALI (layout.tsx'de yoruma alınmış)
 - Dev server: `npm run dev` → localhost:3000
-- **Son commit:** Rock efektleri fine-tune (surface=büyük, underground=küçük+çok)
+- **Son commit:** `0ee81ad` — Desync Boom 1 & Boom 2 animations
 
 ## Sayfa Yapısı
 ### Var olan sayfalar:
@@ -45,18 +45,19 @@ Her makine hover'da drill temas noktasında efekt gösterir:
 - **rock-up-1~6** — Surface için yerçekimli kaya parçacıkları (parabolik ark, uzun mesafe)
 - **rock-right-1~6** — Underground için sağa kaya parçacıkları (kısa mesafe, ~50% azaltılmış)
 - CSS class'ları: `.animate-puff-up-1`, `.animate-puff-right-1` vb.
+- **Desync class'ları**: `.animate-puff-right-1-d`, `-2-d`, `-3-d` — Boom 2 için +0.45s gecikmeli versiyonlar
 
 ### 5 Efekt Bölgesi (page.tsx):
 1. **Sandvik Surface** — `top: 81%, left: 31%` — puff-up + rock-up — BÜYÜK taşlar (5px max), 9 adet
 2. **Sandvik Underground Boom 1** — `top: 25%, left: 10%` — puff-right + rock-right — KÜÇÜK taşlar (2px max), 9 adet
-3. **Sandvik Underground Boom 2** — `top: 33%, left: 5%` — puff-right + rock-right — Boom 1 ile AYNI boyut taşlar, 9 adet, 3 puff
+3. **Sandvik Underground Boom 2** — `top: 33%, left: 5%` — puff-right-**d** + rock-right — Boom 1 ile AYNI boyut, 9 adet, **+0.45s desync**
 4. **Epiroc Surface** — `top: 85%, left: 32%` — puff-up + rock-up — BÜYÜK taşlar (5px max), 9 adet
 5. **Epiroc Underground** — `top: 28%, left: 2%` — puff-right + rock-right — KÜÇÜK taşlar (2px max), 9 adet
 
 ### Taş Boyut Kuralı:
 - **Surface** = BÜYÜK taşlar (1-5px), uzun mesafe sıçrama
 - **Underground** = KÜÇÜK taşlar (1-2px) ama ÇOK adet (9 per boom), kısa mesafe sıçrama
-- Boom 1 ve Boom 2 aynı taş büyüklükleri
+- Boom 1 ve Boom 2 aynı taş büyüklükleri, farklı zamanlama (desync)
 
 ### Puff Elementleri:
 - Rounded-full div'ler, radial-gradient background (bej/gri tonları)
@@ -114,7 +115,9 @@ Her makine hover'da drill temas noktasında efekt gösterir:
 - Git çalışıyor, remote: `origin/main`
 - **Önemli commit'ler:**
   - `fc328c8` — Full project state with CLAUDE.md project memory (ilk tam kayıt)
-  - `c8f872b` — Cartoon-style dust puff animations (mevcut durum)
+  - `c8f872b` — Cartoon-style dust puff animations
+  - `b7e5c29` — Rock fragments fine-tune (surface=big, underground=small+many)
+  - `0ee81ad` — Desync Boom 1 & Boom 2 animations (mevcut durum)
 
 ## Sıradaki İşler
 - [ ] Scroll animasyonları ekle (Framer Motion - konsept beğenildi)
