@@ -1,13 +1,3 @@
-@keyframes drillarm-smooth {
-  0% { transform: translateX(0); }
-  30% { transform: translateX(0); }
-  60% { transform: translateX(38px); }
-  80% { transform: translateX(32px); }
-  100% { transform: translateX(0); }
-}
-.animate-drillarm-smooth {
-  animation: drillarm-smooth 0.7s cubic-bezier(0.7,0,0.3,1) 1;
-}
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -132,4 +122,259 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CUSTOM ANIMATIONS — Must be AFTER Tailwind imports
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes drillarm-smooth {
+  0% { transform: translateX(0); }
+  30% { transform: translateX(0); }
+  60% { transform: translateX(38px); }
+  80% { transform: translateX(32px); }
+  100% { transform: translateX(0); }
+}
+.animate-drillarm-smooth {
+  animation: drillarm-smooth 0.7s cubic-bezier(0.7,0,0.3,1) 1;
+}
+
+/* ═══ Cartoon Dust Puff — surface drill (poof upward) ═══ */
+@keyframes puff-up-1 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.3); }
+  8% { opacity: 1; transform: translate(-2px, -6px) scale(1); }
+  30% { opacity: 0.85; transform: translate(-6px, -25px) scale(1.5); }
+  55% { opacity: 0.5; transform: translate(-10px, -50px) scale(1.8); }
+  80% { opacity: 0.2; transform: translate(-13px, -70px) scale(2.0); }
+  100% { opacity: 0; transform: translate(-15px, -85px) scale(2.1); }
+}
+@keyframes puff-up-2 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.3); }
+  10% { opacity: 0.95; transform: translate(3px, -8px) scale(0.9); }
+  35% { opacity: 0.7; transform: translate(8px, -30px) scale(1.3); }
+  60% { opacity: 0.4; transform: translate(12px, -52px) scale(1.6); }
+  85% { opacity: 0.15; transform: translate(15px, -68px) scale(1.8); }
+  100% { opacity: 0; transform: translate(17px, -78px) scale(1.9); }
+}
+@keyframes puff-up-3 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.2); }
+  12% { opacity: 0.9; transform: translate(-1px, -5px) scale(0.7); }
+  40% { opacity: 0.55; transform: translate(-3px, -20px) scale(1.0); }
+  70% { opacity: 0.2; transform: translate(-4px, -35px) scale(1.2); }
+  100% { opacity: 0; transform: translate(-5px, -45px) scale(1.3); }
+}
+.animate-puff-up-1 { animation: puff-up-1 0.9s ease-out infinite; }
+.animate-puff-up-2 { animation: puff-up-2 1.0s ease-out infinite 0.15s; }
+.animate-puff-up-3 { animation: puff-up-3 0.75s ease-out infinite 0.3s; }
+
+/* ═══ Cartoon Dust Puff — underground drill (poof rightward) ═══ */
+@keyframes puff-right-1 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.3); }
+  8% { opacity: 1; transform: translate(6px, -2px) scale(1); }
+  30% { opacity: 0.85; transform: translate(25px, -6px) scale(1.5); }
+  55% { opacity: 0.5; transform: translate(50px, -4px) scale(1.8); }
+  80% { opacity: 0.2; transform: translate(70px, -2px) scale(2.0); }
+  100% { opacity: 0; transform: translate(85px, 0px) scale(2.1); }
+}
+@keyframes puff-right-2 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.3); }
+  10% { opacity: 0.95; transform: translate(8px, -5px) scale(0.9); }
+  35% { opacity: 0.7; transform: translate(30px, -12px) scale(1.3); }
+  60% { opacity: 0.4; transform: translate(52px, -8px) scale(1.6); }
+  85% { opacity: 0.15; transform: translate(68px, -5px) scale(1.8); }
+  100% { opacity: 0; transform: translate(78px, -3px) scale(1.9); }
+}
+@keyframes puff-right-3 {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.2); }
+  12% { opacity: 0.9; transform: translate(5px, 2px) scale(0.7); }
+  40% { opacity: 0.55; transform: translate(20px, 5px) scale(1.0); }
+  70% { opacity: 0.2; transform: translate(35px, 6px) scale(1.2); }
+  100% { opacity: 0; transform: translate(45px, 7px) scale(1.3); }
+}
+.animate-puff-right-1 { animation: puff-right-1 0.9s ease-out infinite; }
+.animate-puff-right-2 { animation: puff-right-2 1.0s ease-out infinite 0.15s; }
+.animate-puff-right-3 { animation: puff-right-3 0.75s ease-out infinite 0.3s; }
+
+/* ═══ Rock Fragments — surface drill (parabolic arcs with GRAVITY) ═══ */
+/* Rocks launch upward & sideways, then arc downward due to gravity */
+/* Left arc — big piece flies left, peaks, falls */
+@keyframes rock-up-1 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 1; transform: translate(-4px, -6px) rotate(15deg); }
+  25% { opacity: 1; transform: translate(-14px, -22px) rotate(80deg); }
+  50% { opacity: 0.8; transform: translate(-24px, -18px) rotate(170deg); }
+  75% { opacity: 0.5; transform: translate(-30px, -6px) rotate(250deg); }
+  100% { opacity: 0; transform: translate(-34px, 10px) rotate(330deg); }
+}
+/* Right arc — piece flies right */
+@keyframes rock-up-2 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 1; transform: translate(3px, -5px) rotate(-10deg); }
+  25% { opacity: 1; transform: translate(12px, -20px) rotate(-75deg); }
+  50% { opacity: 0.8; transform: translate(20px, -16px) rotate(-160deg); }
+  75% { opacity: 0.5; transform: translate(26px, -4px) rotate(-240deg); }
+  100% { opacity: 0; transform: translate(30px, 12px) rotate(-320deg); }
+}
+/* Far left — smaller, faster, lower arc */
+@keyframes rock-up-3 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 0.95; transform: translate(-5px, -4px) rotate(20deg); }
+  25% { opacity: 0.9; transform: translate(-16px, -16px) rotate(90deg); }
+  50% { opacity: 0.7; transform: translate(-26px, -10px) rotate(190deg); }
+  75% { opacity: 0.4; transform: translate(-32px, 2px) rotate(270deg); }
+  100% { opacity: 0; transform: translate(-36px, 16px) rotate(350deg); }
+}
+/* Far right — small chip, high arc */
+@keyframes rock-up-4 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 0.9; transform: translate(2px, -7px) rotate(-15deg); }
+  25% { opacity: 0.9; transform: translate(10px, -24px) rotate(-85deg); }
+  50% { opacity: 0.7; transform: translate(18px, -20px) rotate(-175deg); }
+  75% { opacity: 0.35; transform: translate(24px, -8px) rotate(-260deg); }
+  100% { opacity: 0; transform: translate(28px, 8px) rotate(-340deg); }
+}
+/* Steep left — nearly vertical, drops fast */
+@keyframes rock-up-5 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 0.95; transform: translate(-2px, -8px) rotate(12deg); }
+  25% { opacity: 0.9; transform: translate(-8px, -26px) rotate(70deg); }
+  50% { opacity: 0.65; transform: translate(-14px, -22px) rotate(155deg); }
+  75% { opacity: 0.3; transform: translate(-18px, -10px) rotate(230deg); }
+  100% { opacity: 0; transform: translate(-20px, 6px) rotate(310deg); }
+}
+/* Short right — barely launches, heavy piece */
+@keyframes rock-up-6 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 0.9; transform: translate(3px, -3px) rotate(-8deg); }
+  25% { opacity: 0.85; transform: translate(10px, -12px) rotate(-55deg); }
+  50% { opacity: 0.6; transform: translate(16px, -6px) rotate(-120deg); }
+  75% { opacity: 0.3; transform: translate(20px, 4px) rotate(-180deg); }
+  100% { opacity: 0; transform: translate(22px, 14px) rotate(-240deg); }
+}
+
+/* ═══ Rock Fragments — underground drill (parabolic arcs, fly right + gravity) ═══ */
+/* Rocks launch rightward from wall impact, then arc downward */
+/* Upper right arc */
+@keyframes rock-right-1 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 1; transform: translate(5px, -5px) rotate(12deg); }
+  25% { opacity: 1; transform: translate(18px, -18px) rotate(75deg); }
+  50% { opacity: 0.8; transform: translate(28px, -12px) rotate(165deg); }
+  75% { opacity: 0.5; transform: translate(34px, 2px) rotate(245deg); }
+  100% { opacity: 0; transform: translate(38px, 18px) rotate(330deg); }
+}
+/* Lower right arc */
+@keyframes rock-right-2 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 0.95; transform: translate(4px, 2px) rotate(-10deg); }
+  25% { opacity: 0.9; transform: translate(16px, -8px) rotate(-65deg); }
+  50% { opacity: 0.7; transform: translate(26px, -2px) rotate(-140deg); }
+  75% { opacity: 0.4; transform: translate(32px, 10px) rotate(-215deg); }
+  100% { opacity: 0; transform: translate(36px, 22px) rotate(-290deg); }
+}
+/* High right — small fast chip */
+@keyframes rock-right-3 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 0.9; transform: translate(3px, -6px) rotate(18deg); }
+  25% { opacity: 0.85; transform: translate(14px, -22px) rotate(85deg); }
+  50% { opacity: 0.6; transform: translate(24px, -16px) rotate(180deg); }
+  75% { opacity: 0.3; transform: translate(30px, -4px) rotate(265deg); }
+  100% { opacity: 0; transform: translate(34px, 12px) rotate(350deg); }
+}
+/* Straight right — medium arc */
+@keyframes rock-right-4 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 0.9; transform: translate(6px, -2px) rotate(-12deg); }
+  25% { opacity: 0.85; transform: translate(20px, -10px) rotate(-70deg); }
+  50% { opacity: 0.65; transform: translate(30px, -4px) rotate(-150deg); }
+  75% { opacity: 0.35; transform: translate(36px, 6px) rotate(-230deg); }
+  100% { opacity: 0; transform: translate(40px, 18px) rotate(-310deg); }
+}
+/* Short heavy drop */
+@keyframes rock-right-5 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 0.85; transform: translate(4px, -3px) rotate(10deg); }
+  25% { opacity: 0.8; transform: translate(12px, -12px) rotate(55deg); }
+  50% { opacity: 0.55; transform: translate(18px, -6px) rotate(125deg); }
+  75% { opacity: 0.25; transform: translate(22px, 4px) rotate(195deg); }
+  100% { opacity: 0; transform: translate(24px, 16px) rotate(260deg); }
+}
+/* Wide right arc — drifts right */
+@keyframes rock-right-6 {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  5% { opacity: 0.9; transform: translate(5px, 1px) rotate(-8deg); }
+  25% { opacity: 0.8; transform: translate(16px, -6px) rotate(-50deg); }
+  50% { opacity: 0.55; transform: translate(24px, 0px) rotate(-110deg); }
+  75% { opacity: 0.25; transform: translate(28px, 10px) rotate(-170deg); }
+  100% { opacity: 0; transform: translate(30px, 20px) rotate(-230deg); }
+}
+
+/* ═══ Glow pulse behind machine ═══ */
+@keyframes machine-glow-pulse {
+  0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.9); }
+  50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
+}
+.animate-machine-glow {
+  animation: machine-glow-pulse 1.5s ease-in-out infinite;
+}
+
+/* ═══ Shine sweep across machine ═══ */
+@keyframes shine-sweep {
+  0% { left: -50%; }
+  100% { left: 130%; }
+}
+.animate-shine-sweep {
+  animation: shine-sweep 1.2s ease-in-out infinite;
+}
+
+/* ═══ Brand Text — Premium Glow Pulse ═══ */
+@keyframes brand-text-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 20px rgba(255,255,255,0.3),
+      0 0 40px rgba(255,255,255,0.1),
+      0 4px 15px rgba(0,0,0,0.3);
+    letter-spacing: 0.15em;
+  }
+  50% {
+    text-shadow:
+      0 0 30px rgba(255,255,255,0.5),
+      0 0 60px rgba(255,255,255,0.2),
+      0 0 80px rgba(255,255,255,0.1),
+      0 4px 15px rgba(0,0,0,0.3);
+    letter-spacing: 0.18em;
+  }
+}
+.animate-brand-text {
+  animation: brand-text-glow 2.5s ease-in-out infinite;
+}
+
+/* ═══ Brand Text — Metallic Shimmer Sweep ═══ */
+@keyframes brand-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.brand-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.8) 0%,
+    rgba(255,255,255,1) 25%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,1) 75%,
+    rgba(255,255,255,0.8) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brand-shimmer 3s linear infinite;
+}
+
+/* ═══ Radial Glow Behind Brand Text ═══ */
+@keyframes brand-glow-bg {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.85); }
+  50% { opacity: 0.55; transform: translate(-50%, -50%) scale(1.05); }
+}
+.animate-brand-glow-bg {
+  animation: brand-glow-bg 2.5s ease-in-out infinite;
 }
