@@ -8,10 +8,11 @@
 - **Repo:** https://github.com/berkankalkan-bot/bkdrilling.git
 - **Markalar:** Sandvik, Epiroc, Atlas Copco, Tamrock
 
-## Mevcut Durum (Son Kayıt: 2026-02-18)
-- Ana sayfa (page.tsx) çalışıyor - orijinal hali
+## Mevcut Durum (Son Kayıt: 2026-02-20)
+- Ana sayfa (page.tsx) çalışıyor — premium brand kartları + efektler
 - Under Construction overlay KAPALI (layout.tsx'de yoruma alınmış)
 - Dev server: `npm run dev` → localhost:3000
+- **Son commit:** Rock efektleri fine-tune (surface=büyük, underground=küçük+çok)
 
 ## Sayfa Yapısı
 ### Var olan sayfalar:
@@ -28,8 +29,44 @@
 
 ## Ana Sayfa Bölümleri (page.tsx)
 1. **Sandvik & Epiroc Kartları** - Split hover efekti (üst: surface, alt: underground)
+   - 3D tilt efekti (perspective + rotateY/X mouse ile)
+   - Hover'da: section glow, machine glow, shine sweep, drop-shadow
+   - SANDVIK/EPIROC yazısı: brand-shimmer + brand-glow-bg animasyonu, hover'da fade
+   - Divider çizgisi: hover'da kaybolur, iki section ayrılır (±10px translate)
 2. **Quick Links** - Second Hand Parts, Compressors, All Parts Catalogue
 3. **Trademark Disclaimer** - Siyah arka plan
+
+## Drill Contact Efektleri (Mevcut — Cartoon Puff + Rock)
+Her makine hover'da drill temas noktasında efekt gösterir:
+
+### CSS Animasyonları (globals.css):
+- **puff-up-1/2/3** — Surface driller için yukarı doğru puff (scale 0.3→1→2.1)
+- **puff-right-1/2/3** — Underground driller için sağa doğru puff
+- **rock-up-1~6** — Surface için yerçekimli kaya parçacıkları (parabolik ark, uzun mesafe)
+- **rock-right-1~6** — Underground için sağa kaya parçacıkları (kısa mesafe, ~50% azaltılmış)
+- CSS class'ları: `.animate-puff-up-1`, `.animate-puff-right-1` vb.
+
+### 5 Efekt Bölgesi (page.tsx):
+1. **Sandvik Surface** — `top: 81%, left: 31%` — puff-up + rock-up — BÜYÜK taşlar (5px max), 9 adet
+2. **Sandvik Underground Boom 1** — `top: 25%, left: 10%` — puff-right + rock-right — KÜÇÜK taşlar (2px max), 9 adet
+3. **Sandvik Underground Boom 2** — `top: 33%, left: 5%` — puff-right + rock-right — Boom 1 ile AYNI boyut taşlar, 9 adet, 3 puff
+4. **Epiroc Surface** — `top: 85%, left: 32%` — puff-up + rock-up — BÜYÜK taşlar (5px max), 9 adet
+5. **Epiroc Underground** — `top: 28%, left: 2%` — puff-right + rock-right — KÜÇÜK taşlar (2px max), 9 adet
+
+### Taş Boyut Kuralı:
+- **Surface** = BÜYÜK taşlar (1-5px), uzun mesafe sıçrama
+- **Underground** = KÜÇÜK taşlar (1-2px) ama ÇOK adet (9 per boom), kısa mesafe sıçrama
+- Boom 1 ve Boom 2 aynı taş büyüklükleri
+
+### Puff Elementleri:
+- Rounded-full div'ler, radial-gradient background (bej/gri tonları)
+- 3 puff per bölge (büyük ~20px, orta ~14px, küçük ~10px)
+- className ile animasyon (inline animation çalışmıyor, className zorunlu!)
+
+### Rock Fragment Elementleri:
+- 9 küçük div per bölge, inline animation style ile çalışıyor
+- Yerçekimli parabolik ark animasyonları
+- Underground rock-right mesafeleri yarıya indirildi (max ~20px)
 
 ## Önemli Dosyalar
 - `app/layout.tsx` - Root layout (Header + Footer, UnderConstruction YORUMDA)
@@ -55,6 +92,9 @@
 3. **PartsRings** - Three.js ile dönen halkalarda parçalar (kokomi.js adaptasyonu) → REDDEDİLDİ
 4. **SpaceDescent** - Framer Motion scroll ile uzaydan maden ocağına iniş → REDDEDİLDİ
 5. **Makine fotoğrafları invert efekti** - CSS filter invert + screen blend → REDDEDİLDİ
+6. **Gerçekçi toz bulutu** (box-shadow tekniği) — Çok iterasyon yapıldı, overflow-hidden clipping sorunu, blob'lar birleşmedi → KALDIRILDI, cartoon tarzına geçildi
+7. **filter: blur() wrapper** — Wrapper div 0x0 boyut sorunu → ÇALIŞMADI
+8. **Inline animation style (puff)** — Tailwind v4'te className ile çalışıyor ama inline `animation: 'puff-up-1...'` çalışmıyor! Rock animation'ları inline çalışıyor ama puff'lar çalışmadı → HER ZAMAN CSS CLASS KULLAN
 
 ## Kullanıcı Tercihleri
 - Apple kalitesinin altını KABUL ETMİYOR
@@ -71,11 +111,12 @@
 - BK Drilling logosu da burada: "BK Drilling logosu, .png"
 
 ## Git Durumu
-- `.git` klasörü var ama git komutları çalışmıyor (muhtemelen bozuk repo)
-- Workaround: Manuel dosya backup ile çalışıyoruz
+- Git çalışıyor, remote: `origin/main`
+- **Önemli commit'ler:**
+  - `fc328c8` — Full project state with CLAUDE.md project memory (ilk tam kayıt)
+  - `c8f872b` — Cartoon-style dust puff animations (mevcut durum)
 
 ## Sıradaki İşler
-- [ ] Makine fotoğraflarını iyileştir (şu an siyah-beyaz siluet, daha premium olmalı)
 - [ ] Scroll animasyonları ekle (Framer Motion - konsept beğenildi)
 - [ ] Arama çubuğunu daha belirgin yap
 - [ ] Eksik sayfaları oluştur (spare-parts, about, contact vs.)

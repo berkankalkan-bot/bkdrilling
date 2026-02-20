@@ -126,12 +126,15 @@ export default function Home() {
                         <div className="absolute rounded-full animate-puff-up-2" style={{ width: 16, height: 16, background: 'radial-gradient(circle, rgba(220,210,195,0.9) 30%, rgba(190,180,160,0.55) 70%, transparent 100%)', top: 2, left: 8 }} />
                         <div className="absolute rounded-full animate-puff-up-3" style={{ width: 12, height: 12, background: 'radial-gradient(circle, rgba(200,190,175,0.85) 30%, rgba(170,160,140,0.5) 70%, transparent 100%)', top: -2, left: 2 }} />
                         {/* Rock fragments */}
-                        <div className="absolute w-[3px] h-[2px] rounded-[1px]" style={{ background: '#5C5549', animation: 'rock-up-1 0.6s ease-out infinite', top: '2px', left: '4px' }} />
-                        <div className="absolute w-[2px] h-[1.5px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-up-2 0.55s ease-out infinite 0.08s', top: '1px', left: '0' }} />
-                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#4A4438', animation: 'rock-up-3 0.65s ease-out infinite 0.2s', top: '0', left: '6px' }} />
-                        <div className="absolute w-[1px] h-[1.5px] rounded-[0.5px]" style={{ background: '#6B6050', animation: 'rock-up-4 0.7s ease-out infinite 0.12s', top: '3px', left: '1px' }} />
-                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#8B7F6F', animation: 'rock-up-5 0.75s ease-out infinite 0.3s', top: '-1px', left: '3px' }} />
-                        <div className="absolute w-[0.8px] h-[0.8px] rounded-full" style={{ background: '#635B4D', animation: 'rock-up-6 0.5s ease-out infinite 0.18s', top: '2px', left: '7px' }} />
+                        <div className="absolute w-[5px] h-[3px] rounded-[1px]" style={{ background: '#4A4438', animation: 'rock-up-1 0.6s ease-out infinite', top: '2px', left: '4px' }} />
+                        <div className="absolute w-[4px] h-[2.5px] rounded-[1px]" style={{ background: '#5C5549', animation: 'rock-up-3 0.55s ease-out infinite 0.05s', top: '0', left: '-2px' }} />
+                        <div className="absolute w-[3px] h-[2px] rounded-[1px]" style={{ background: '#7A6E5E', animation: 'rock-up-2 0.55s ease-out infinite 0.08s', top: '1px', left: '0' }} />
+                        <div className="absolute w-[2.5px] h-[1.5px] rounded-[0.5px]" style={{ background: '#4A4438', animation: 'rock-up-5 0.65s ease-out infinite 0.2s', top: '0', left: '8px' }} />
+                        <div className="absolute w-[2px] h-[1.5px] rounded-[0.5px]" style={{ background: '#6B6050', animation: 'rock-up-4 0.7s ease-out infinite 0.12s', top: '3px', left: '1px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#8B7F6F', animation: 'rock-up-6 0.6s ease-out infinite 0.25s', top: '-1px', left: '6px' }} />
+                        <div className="absolute w-[3.5px] h-[2px] rounded-[1px]" style={{ background: '#5C5549', animation: 'rock-up-4 0.58s ease-out infinite 0.15s', top: '1px', left: '10px' }} />
+                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#635B4D', animation: 'rock-up-2 0.5s ease-out infinite 0.18s', top: '2px', left: '7px' }} />
+                        <div className="absolute w-[1.5px] h-[1.5px] rounded-full" style={{ background: '#7A6E5E', animation: 'rock-up-1 0.65s ease-out infinite 0.32s', top: '3px', left: '-1px' }} />
                       </div>
                     </div>
 
@@ -210,27 +213,35 @@ export default function Home() {
                         <div className="absolute rounded-full animate-puff-right-1" style={{ width: 20, height: 20, background: 'radial-gradient(circle, rgba(210,200,185,0.95) 30%, rgba(180,170,150,0.6) 70%, transparent 100%)', top: -5, left: 0 }} />
                         <div className="absolute rounded-full animate-puff-right-2" style={{ width: 14, height: 14, background: 'radial-gradient(circle, rgba(220,210,195,0.9) 30%, rgba(190,180,160,0.55) 70%, transparent 100%)', top: 4, left: 2 }} />
                         <div className="absolute rounded-full animate-puff-right-3" style={{ width: 10, height: 10, background: 'radial-gradient(circle, rgba(200,190,175,0.85) 30%, rgba(170,160,140,0.5) 70%, transparent 100%)', top: -1, left: -2 }} />
-                        {/* Rock fragments */}
-                        <div className="absolute w-[3px] h-[2px] rounded-[1px]" style={{ background: '#5C5549', animation: 'rock-right-1 0.6s ease-out infinite', top: '2px', left: '4px' }} />
-                        <div className="absolute w-[2px] h-[1.5px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-right-2 0.55s ease-out infinite 0.08s', top: '4px', left: '1px' }} />
-                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#4A4438', animation: 'rock-right-3 0.65s ease-out infinite 0.2s', top: '0', left: '6px' }} />
-                        <div className="absolute w-[1px] h-[1.5px] rounded-[0.5px]" style={{ background: '#6B6050', animation: 'rock-right-4 0.7s ease-out infinite 0.12s', top: '3px', left: '2px' }} />
-                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#8B7F6F', animation: 'rock-right-5 0.75s ease-out infinite 0.3s', top: '-1px', left: '4px' }} />
-                        <div className="absolute w-[0.8px] h-[0.8px] rounded-full" style={{ background: '#635B4D', animation: 'rock-right-6 0.5s ease-out infinite 0.18s', top: '5px', left: '3px' }} />
+                        {/* Rock fragments — küçük ama çok */}
+                        <div className="absolute w-[2px] h-[1.5px] rounded-[0.5px]" style={{ background: '#5C5549', animation: 'rock-right-1 0.5s ease-out infinite', top: '1px', left: '3px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-right-2 0.45s ease-out infinite 0.06s', top: '3px', left: '1px' }} />
+                        <div className="absolute w-[1.5px] h-[1.5px] rounded-[0.5px]" style={{ background: '#4A4438', animation: 'rock-right-3 0.55s ease-out infinite 0.12s', top: '-1px', left: '5px' }} />
+                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#6B6050', animation: 'rock-right-4 0.5s ease-out infinite 0.08s', top: '4px', left: '2px' }} />
+                        <div className="absolute w-[2px] h-[1px] rounded-[0.5px]" style={{ background: '#8B7F6F', animation: 'rock-right-5 0.55s ease-out infinite 0.2s', top: '0', left: '0' }} />
+                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#635B4D', animation: 'rock-right-6 0.4s ease-out infinite 0.15s', top: '5px', left: '4px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#5C5549', animation: 'rock-right-1 0.48s ease-out infinite 0.25s', top: '2px', left: '6px' }} />
+                        <div className="absolute w-[1px] h-[1.5px] rounded-full" style={{ background: '#4A4438', animation: 'rock-right-4 0.52s ease-out infinite 0.18s', top: '-1px', left: '2px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-right-2 0.5s ease-out infinite 0.3s', top: '4px', left: '5px' }} />
                       </div>
                       {/* Boom Arm 2 (bottom) — cartoon dust puffs + rock fragments */}
                       <div className={`absolute z-20 pointer-events-none
                         transition-opacity duration-200 ${sandvikUndergroundHover ? 'opacity-100' : 'opacity-0'}`}
                         style={{ top: '33%', left: '5%' }}>
                         {/* Cartoon dust puffs */}
-                        <div className="absolute rounded-full animate-puff-right-2" style={{ width: 16, height: 16, background: 'radial-gradient(circle, rgba(210,200,185,0.9) 30%, rgba(180,170,150,0.55) 70%, transparent 100%)', top: -3, left: 0 }} />
-                        <div className="absolute rounded-full animate-puff-right-3" style={{ width: 11, height: 11, background: 'radial-gradient(circle, rgba(200,190,175,0.85) 30%, rgba(170,160,140,0.5) 70%, transparent 100%)', top: 2, left: -2 }} />
-                        {/* Rock fragments */}
-                        <div className="absolute w-[2.5px] h-[2px] rounded-[1px]" style={{ background: '#5C5549', animation: 'rock-right-3 0.55s ease-out infinite 0.1s', top: '2px', left: '4px' }} />
-                        <div className="absolute w-[1.5px] h-[1.5px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-right-1 0.65s ease-out infinite 0.22s', top: '0', left: '5px' }} />
-                        <div className="absolute w-[1px] h-[1px] rounded-[0.5px]" style={{ background: '#4A4438', animation: 'rock-right-4 0.6s ease-out infinite 0.35s', top: '4px', left: '2px' }} />
-                        <div className="absolute w-[0.8px] h-[0.8px] rounded-full" style={{ background: '#6B6050', animation: 'rock-right-6 0.7s ease-out infinite 0.15s', top: '1px', left: '6px' }} />
-                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#8B7F6F', animation: 'rock-right-2 0.5s ease-out infinite 0.28s', top: '5px', left: '3px' }} />
+                        <div className="absolute rounded-full animate-puff-right-1" style={{ width: 18, height: 18, background: 'radial-gradient(circle, rgba(210,200,185,0.95) 30%, rgba(180,170,150,0.6) 70%, transparent 100%)', top: -4, left: 0 }} />
+                        <div className="absolute rounded-full animate-puff-right-2" style={{ width: 13, height: 13, background: 'radial-gradient(circle, rgba(220,210,195,0.9) 30%, rgba(190,180,160,0.55) 70%, transparent 100%)', top: 3, left: 2 }} />
+                        <div className="absolute rounded-full animate-puff-right-3" style={{ width: 9, height: 9, background: 'radial-gradient(circle, rgba(200,190,175,0.85) 30%, rgba(170,160,140,0.5) 70%, transparent 100%)', top: -1, left: -2 }} />
+                        {/* Rock fragments — küçük ama çok (Boom 1 ile aynı) */}
+                        <div className="absolute w-[2px] h-[1.5px] rounded-[0.5px]" style={{ background: '#5C5549', animation: 'rock-right-1 0.5s ease-out infinite 0.1s', top: '1px', left: '3px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-right-2 0.45s ease-out infinite 0.16s', top: '3px', left: '1px' }} />
+                        <div className="absolute w-[1.5px] h-[1.5px] rounded-[0.5px]" style={{ background: '#4A4438', animation: 'rock-right-3 0.55s ease-out infinite 0.22s', top: '-1px', left: '5px' }} />
+                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#6B6050', animation: 'rock-right-4 0.5s ease-out infinite 0.08s', top: '4px', left: '2px' }} />
+                        <div className="absolute w-[2px] h-[1px] rounded-[0.5px]" style={{ background: '#8B7F6F', animation: 'rock-right-5 0.55s ease-out infinite 0.3s', top: '0', left: '0' }} />
+                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#635B4D', animation: 'rock-right-6 0.4s ease-out infinite 0.25s', top: '5px', left: '4px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#5C5549', animation: 'rock-right-1 0.48s ease-out infinite 0.35s', top: '2px', left: '6px' }} />
+                        <div className="absolute w-[1px] h-[1.5px] rounded-full" style={{ background: '#4A4438', animation: 'rock-right-4 0.52s ease-out infinite 0.18s', top: '-1px', left: '2px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-right-2 0.5s ease-out infinite 0.4s', top: '4px', left: '5px' }} />
                       </div>
                     </div>
 
@@ -347,12 +358,15 @@ export default function Home() {
                         <div className="absolute rounded-full animate-puff-up-2" style={{ width: 16, height: 16, background: 'radial-gradient(circle, rgba(220,210,195,0.9) 30%, rgba(190,180,160,0.55) 70%, transparent 100%)', top: 2, left: 8 }} />
                         <div className="absolute rounded-full animate-puff-up-3" style={{ width: 12, height: 12, background: 'radial-gradient(circle, rgba(200,190,175,0.85) 30%, rgba(170,160,140,0.5) 70%, transparent 100%)', top: -2, left: 2 }} />
                         {/* Rock fragments */}
-                        <div className="absolute w-[3px] h-[2px] rounded-[1px]" style={{ background: '#5C5549', animation: 'rock-up-1 0.6s ease-out infinite', top: '2px', left: '4px' }} />
-                        <div className="absolute w-[2px] h-[1.5px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-up-2 0.55s ease-out infinite 0.08s', top: '1px', left: '0' }} />
-                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#4A4438', animation: 'rock-up-3 0.65s ease-out infinite 0.2s', top: '0', left: '6px' }} />
-                        <div className="absolute w-[1px] h-[1.5px] rounded-[0.5px]" style={{ background: '#6B6050', animation: 'rock-up-4 0.7s ease-out infinite 0.12s', top: '3px', left: '1px' }} />
-                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#8B7F6F', animation: 'rock-up-5 0.75s ease-out infinite 0.3s', top: '-1px', left: '3px' }} />
-                        <div className="absolute w-[0.8px] h-[0.8px] rounded-full" style={{ background: '#635B4D', animation: 'rock-up-6 0.5s ease-out infinite 0.18s', top: '2px', left: '7px' }} />
+                        <div className="absolute w-[5px] h-[3px] rounded-[1px]" style={{ background: '#4A4438', animation: 'rock-up-1 0.6s ease-out infinite', top: '2px', left: '4px' }} />
+                        <div className="absolute w-[4px] h-[2.5px] rounded-[1px]" style={{ background: '#5C5549', animation: 'rock-up-3 0.55s ease-out infinite 0.05s', top: '0', left: '-2px' }} />
+                        <div className="absolute w-[3px] h-[2px] rounded-[1px]" style={{ background: '#7A6E5E', animation: 'rock-up-2 0.55s ease-out infinite 0.08s', top: '1px', left: '0' }} />
+                        <div className="absolute w-[2.5px] h-[1.5px] rounded-[0.5px]" style={{ background: '#4A4438', animation: 'rock-up-5 0.65s ease-out infinite 0.2s', top: '0', left: '8px' }} />
+                        <div className="absolute w-[2px] h-[1.5px] rounded-[0.5px]" style={{ background: '#6B6050', animation: 'rock-up-4 0.7s ease-out infinite 0.12s', top: '3px', left: '1px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#8B7F6F', animation: 'rock-up-6 0.6s ease-out infinite 0.25s', top: '-1px', left: '6px' }} />
+                        <div className="absolute w-[3.5px] h-[2px] rounded-[1px]" style={{ background: '#5C5549', animation: 'rock-up-4 0.58s ease-out infinite 0.15s', top: '1px', left: '10px' }} />
+                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#635B4D', animation: 'rock-up-2 0.5s ease-out infinite 0.18s', top: '2px', left: '7px' }} />
+                        <div className="absolute w-[1.5px] h-[1.5px] rounded-full" style={{ background: '#7A6E5E', animation: 'rock-up-1 0.65s ease-out infinite 0.32s', top: '3px', left: '-1px' }} />
                       </div>
                     </div>
 
@@ -427,13 +441,16 @@ export default function Home() {
                         <div className="absolute rounded-full animate-puff-right-1" style={{ width: 20, height: 20, background: 'radial-gradient(circle, rgba(210,200,185,0.95) 30%, rgba(180,170,150,0.6) 70%, transparent 100%)', top: -5, left: 0 }} />
                         <div className="absolute rounded-full animate-puff-right-2" style={{ width: 14, height: 14, background: 'radial-gradient(circle, rgba(220,210,195,0.9) 30%, rgba(190,180,160,0.55) 70%, transparent 100%)', top: 4, left: 2 }} />
                         <div className="absolute rounded-full animate-puff-right-3" style={{ width: 10, height: 10, background: 'radial-gradient(circle, rgba(200,190,175,0.85) 30%, rgba(170,160,140,0.5) 70%, transparent 100%)', top: -1, left: -2 }} />
-                        {/* Rock fragments */}
-                        <div className="absolute w-[3px] h-[2px] rounded-[1px]" style={{ background: '#5C5549', animation: 'rock-right-1 0.6s ease-out infinite', top: '2px', left: '4px' }} />
-                        <div className="absolute w-[2px] h-[1.5px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-right-2 0.55s ease-out infinite 0.08s', top: '4px', left: '1px' }} />
-                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#4A4438', animation: 'rock-right-3 0.65s ease-out infinite 0.2s', top: '0', left: '6px' }} />
-                        <div className="absolute w-[1px] h-[1.5px] rounded-[0.5px]" style={{ background: '#6B6050', animation: 'rock-right-4 0.7s ease-out infinite 0.12s', top: '3px', left: '2px' }} />
-                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#8B7F6F', animation: 'rock-right-5 0.75s ease-out infinite 0.3s', top: '-1px', left: '4px' }} />
-                        <div className="absolute w-[0.8px] h-[0.8px] rounded-full" style={{ background: '#635B4D', animation: 'rock-right-6 0.5s ease-out infinite 0.18s', top: '5px', left: '3px' }} />
+                        {/* Rock fragments — küçük ama çok */}
+                        <div className="absolute w-[2px] h-[1.5px] rounded-[0.5px]" style={{ background: '#5C5549', animation: 'rock-right-1 0.5s ease-out infinite', top: '1px', left: '3px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-right-2 0.45s ease-out infinite 0.06s', top: '3px', left: '1px' }} />
+                        <div className="absolute w-[1.5px] h-[1.5px] rounded-[0.5px]" style={{ background: '#4A4438', animation: 'rock-right-3 0.55s ease-out infinite 0.12s', top: '-1px', left: '5px' }} />
+                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#6B6050', animation: 'rock-right-4 0.5s ease-out infinite 0.08s', top: '4px', left: '2px' }} />
+                        <div className="absolute w-[2px] h-[1px] rounded-[0.5px]" style={{ background: '#8B7F6F', animation: 'rock-right-5 0.55s ease-out infinite 0.2s', top: '0', left: '0' }} />
+                        <div className="absolute w-[1px] h-[1px] rounded-full" style={{ background: '#635B4D', animation: 'rock-right-6 0.4s ease-out infinite 0.15s', top: '5px', left: '4px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#5C5549', animation: 'rock-right-1 0.48s ease-out infinite 0.25s', top: '2px', left: '6px' }} />
+                        <div className="absolute w-[1px] h-[1.5px] rounded-full" style={{ background: '#4A4438', animation: 'rock-right-4 0.52s ease-out infinite 0.18s', top: '-1px', left: '2px' }} />
+                        <div className="absolute w-[1.5px] h-[1px] rounded-[0.5px]" style={{ background: '#7A6E5E', animation: 'rock-right-2 0.5s ease-out infinite 0.3s', top: '4px', left: '5px' }} />
                       </div>
                     </div>
 
