@@ -97,11 +97,11 @@ export default function Home() {
                     style={{ boxShadow: 'inset 0 0 60px rgba(255,255,255,0.2), inset 0 0 120px rgba(255,107,107,0.15)' }} />
 
                   {/* Machine image container with glow & shine */}
-                  <div className="absolute inset-0 flex items-end justify-center pb-4">
+                  <div className="absolute inset-0 flex items-end justify-center pb-4 overflow-hidden">
                     {/* Radial glow behind machine */}
-                    <div className={`absolute bottom-[10%] left-1/2 w-[70%] h-[70%] rounded-full pointer-events-none z-0
+                    <div className={`absolute bottom-[10%] left-[15%] w-[70%] h-[70%] rounded-full pointer-events-none z-0
                       transition-opacity duration-150
-                      ${sandvikSurfaceHover ? 'opacity-100 animate-machine-glow' : 'opacity-0'}`}
+                      ${sandvikSurfaceHover ? 'opacity-100 animate-machine-glow' : 'opacity-0 md:group-hover/card:opacity-40'}`}
                       style={{ background: 'radial-gradient(circle, rgba(255,107,107,0.5) 0%, rgba(229,57,53,0.2) 50%, transparent 70%)' }} />
 
                     {/* Machine wrapper — aspect-ratio matches image for precise effect positioning */}
@@ -185,11 +185,11 @@ export default function Home() {
                     style={{ boxShadow: 'inset 0 0 60px rgba(255,255,255,0.2), inset 0 0 120px rgba(139,0,0,0.2)' }} />
 
                   {/* Machine image container with glow & shine */}
-                  <div className="absolute inset-0 flex items-start justify-center pt-1">
+                  <div className="absolute inset-0 flex items-start justify-center pt-1 overflow-hidden">
                     {/* Radial glow behind machine */}
-                    <div className={`absolute top-[10%] left-1/2 w-[70%] h-[70%] rounded-full pointer-events-none z-0
+                    <div className={`absolute top-[10%] left-[15%] w-[70%] h-[70%] rounded-full pointer-events-none z-0
                       transition-opacity duration-150
-                      ${sandvikUndergroundHover ? 'opacity-100 animate-machine-glow' : 'opacity-0'}`}
+                      ${sandvikUndergroundHover ? 'opacity-100 animate-machine-glow' : 'opacity-0 md:group-hover/card:opacity-40'}`}
                       style={{ background: 'radial-gradient(circle, rgba(255,80,80,0.4) 0%, rgba(139,0,0,0.2) 50%, transparent 70%)' }} />
 
                     {/* Machine wrapper — aspect-ratio matches image for precise effect positioning */}
@@ -329,11 +329,11 @@ export default function Home() {
                     style={{ boxShadow: 'inset 0 0 60px rgba(255,255,255,0.18), inset 0 0 120px rgba(252,211,77,0.15)' }} />
 
                   {/* Machine image container with glow & shine */}
-                  <div className="absolute inset-0 flex items-end justify-center pb-4">
+                  <div className="absolute inset-0 flex items-end justify-center pb-4 overflow-hidden">
                     {/* Radial glow behind machine */}
-                    <div className={`absolute bottom-[10%] left-1/2 w-[70%] h-[70%] rounded-full pointer-events-none z-0
+                    <div className={`absolute bottom-[10%] left-[15%] w-[70%] h-[70%] rounded-full pointer-events-none z-0
                       transition-opacity duration-150
-                      ${epirocSurfaceHover ? 'opacity-100 animate-machine-glow' : 'opacity-0'}`}
+                      ${epirocSurfaceHover ? 'opacity-100 animate-machine-glow' : 'opacity-0 md:group-hover/card:opacity-40'}`}
                       style={{ background: 'radial-gradient(circle, rgba(252,211,77,0.5) 0%, rgba(234,179,8,0.2) 50%, transparent 70%)' }} />
 
                     {/* Machine wrapper — aspect-ratio matches image for precise effect positioning */}
@@ -413,11 +413,11 @@ export default function Home() {
                     style={{ boxShadow: 'inset 0 0 60px rgba(255,255,255,0.18), inset 0 0 120px rgba(146,64,14,0.2)' }} />
 
                   {/* Machine image container with glow & shine */}
-                  <div className="absolute inset-0 flex items-start justify-center pt-1">
+                  <div className="absolute inset-0 flex items-start justify-center pt-1 overflow-hidden">
                     {/* Radial glow behind machine */}
-                    <div className={`absolute top-[10%] left-1/2 w-[70%] h-[70%] rounded-full pointer-events-none z-0
+                    <div className={`absolute top-[10%] left-[15%] w-[70%] h-[70%] rounded-full pointer-events-none z-0
                       transition-opacity duration-150
-                      ${epirocUndergroundHover ? 'opacity-100 animate-machine-glow' : 'opacity-0'}`}
+                      ${epirocUndergroundHover ? 'opacity-100 animate-machine-glow' : 'opacity-0 md:group-hover/card:opacity-40'}`}
                       style={{ background: 'radial-gradient(circle, rgba(234,179,8,0.4) 0%, rgba(146,64,14,0.2) 50%, transparent 70%)' }} />
 
                     {/* Machine wrapper — aspect-ratio matches image for precise effect positioning */}

@@ -8,11 +8,11 @@
 - **Repo:** https://github.com/berkankalkan-bot/bkdrilling.git
 - **Markalar:** Sandvik, Epiroc, Atlas Copco, Tamrock
 
-## Mevcut Durum (Son Kayıt: 2026-02-20)
+## Mevcut Durum (Son Kayıt: 2026-02-22)
 - Ana sayfa (page.tsx) çalışıyor — premium brand kartları + efektler
 - Under Construction overlay KAPALI (layout.tsx'de yoruma alınmış)
 - Dev server: `npm run dev` → localhost:3000
-- **Son commit:** `0ee81ad` — Desync Boom 1 & Boom 2 animations
+- **Son commit:** Machine glow overflow fix + section isolation
 
 ## Sayfa Yapısı
 ### Var olan sayfalar:
@@ -33,6 +33,7 @@
    - Hover'da: section glow, machine glow, shine sweep, drop-shadow
    - SANDVIK/EPIROC yazısı: brand-shimmer + brand-glow-bg animasyonu, hover'da fade
    - Divider çizgisi: hover'da kaybolur, iki section ayrılır (±10px translate)
+   - Machine container'larda `overflow-hidden` — glow diğer section'a TAŞMAZ
 2. **Quick Links** - Second Hand Parts, Compressors, All Parts Catalogue
 3. **Trademark Disclaimer** - Siyah arka plan
 
@@ -44,6 +45,7 @@ Her makine hover'da drill temas noktasında efekt gösterir:
 - **puff-right-1/2/3** — Underground driller için sağa doğru puff
 - **rock-up-1~6** — Surface için yerçekimli kaya parçacıkları (parabolik ark, uzun mesafe)
 - **rock-right-1~6** — Underground için sağa kaya parçacıkları (kısa mesafe, ~50% azaltılmış)
+- **machine-glow-pulse** — Scale 0.9→1.1, translate KALDIRILDI (overflow fix)
 - CSS class'ları: `.animate-puff-up-1`, `.animate-puff-right-1` vb.
 - **Desync class'ları**: `.animate-puff-right-1-d`, `-2-d`, `-3-d` — Boom 2 için +0.45s gecikmeli versiyonlar
 
@@ -68,6 +70,13 @@ Her makine hover'da drill temas noktasında efekt gösterir:
 - 9 küçük div per bölge, inline animation style ile çalışıyor
 - Yerçekimli parabolik ark animasyonları
 - Underground rock-right mesafeleri yarıya indirildi (max ~20px)
+
+### Machine Glow Sistemi:
+- Glow div: `left-[15%]` ile merkezlenmiş (left-1/2 + translate KULLANMA!)
+- Direkt hover: %100 opacity + animate-machine-glow (pulsing)
+- Diğer section hover (card hover): %40 opacity, statik (karartmayı önler)
+- Container'larda `overflow-hidden` — glow komşu section'a TAŞMAZ
+- **BUG FIX**: `machine-glow-pulse` animasyonundan `translate(-50%, -50%)` kaldırıldı — bu underground glow'un surface'a taşmasına neden oluyordu
 
 ## Önemli Dosyalar
 - `app/layout.tsx` - Root layout (Header + Footer, UnderConstruction YORUMDA)
@@ -96,6 +105,7 @@ Her makine hover'da drill temas noktasında efekt gösterir:
 6. **Gerçekçi toz bulutu** (box-shadow tekniği) — Çok iterasyon yapıldı, overflow-hidden clipping sorunu, blob'lar birleşmedi → KALDIRILDI, cartoon tarzına geçildi
 7. **filter: blur() wrapper** — Wrapper div 0x0 boyut sorunu → ÇALIŞMADI
 8. **Inline animation style (puff)** — Tailwind v4'te className ile çalışıyor ama inline `animation: 'puff-up-1...'` çalışmıyor! Rock animation'ları inline çalışıyor ama puff'lar çalışmadı → HER ZAMAN CSS CLASS KULLAN
+9. **Machine glow left-1/2 + translate(-50%,-50%)** — Glow animasyonu translate ile komşu section'a taşıyor → left-[15%] + overflow-hidden ile düzeltildi
 
 ## Kullanıcı Tercihleri
 - Apple kalitesinin altını KABUL ETMİYOR
@@ -117,7 +127,8 @@ Her makine hover'da drill temas noktasında efekt gösterir:
   - `fc328c8` — Full project state with CLAUDE.md project memory (ilk tam kayıt)
   - `c8f872b` — Cartoon-style dust puff animations
   - `b7e5c29` — Rock fragments fine-tune (surface=big, underground=small+many)
-  - `0ee81ad` — Desync Boom 1 & Boom 2 animations (mevcut durum)
+  - `0ee81ad` — Desync Boom 1 & Boom 2 animations
+  - Son commit — Machine glow overflow fix + section isolation (mevcut durum)
 
 ## Sıradaki İşler
 - [ ] Scroll animasyonları ekle (Framer Motion - konsept beğenildi)
