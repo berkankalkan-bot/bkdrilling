@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import InquiryDrawer from "@/components/InquiryDrawer";
  // import UnderConstructionOverlay from "@/components/UnderConstructionOverlay";
 
-const quicksand = Quicksand({
-  subsets: ["latin"],
+const quicksand = localFont({
+  src: "../public/fonts/Quicksand-VariableFont_wght.ttf",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -100,6 +100,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <InquiryDrawer />
       </body>
     </html>
   );
