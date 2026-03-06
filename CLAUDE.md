@@ -8,11 +8,12 @@
 - **Repo:** https://github.com/berkankalkan-bot/bkdrilling.git
 - **Markalar:** Sandvik, Epiroc, Atlas Copco, Tamrock
 
-## Mevcut Durum (Son Kayıt: 2026-02-22)
-- Ana sayfa (page.tsx) çalışıyor — premium brand kartları + efektler
-- Under Construction overlay KAPALI (layout.tsx'de yoruma alınmış)
+## Mevcut Durum (Son Kayıt: 2026-03-06)
+- Under Construction sayfası CANLI — www.bkdrilling.com
+- Three.js cam baloncuklar + Fresnel shader + yedek parça görselleri
+- Ana sayfa (page.tsx) arka planda hazır ama UC aktif
 - Dev server: `npm run dev` → localhost:3000
-- **Son commit:** Machine glow overflow fix + section isolation
+- **Son commit:** Under construction page - layout fixes, copy protection, deploy
 
 ## Sayfa Yapısı
 ### Var olan sayfalar:
@@ -130,8 +131,45 @@ Her makine hover'da drill temas noktasında efekt gösterir:
   - `0ee81ad` — Desync Boom 1 & Boom 2 animations
   - Son commit — Machine glow overflow fix + section isolation (mevcut durum)
 
+## Deploy Sistemi (Güncel - 2026-03-06)
+- **Yöntem:** Python paramiko SFTP (PuTTY KULLANILMIYOR)
+- **Deploy komutu (tek satır):**
+  ```
+  npm run build && cp public/under-construction.html out/index.html && python upload.py
+  ```
+- **Sunucu:** 104.247.173.45, port 22, user: root, pw: `3I4Me62m6jgIPqo3BF`
+- **Remote path:** `/var/www/www-root/data/www/www.bkdrilling.com/`
+- **Nginx:** statik dosya sunuyor:
+  ```
+  root /var/www/www-root/data/www/www.bkdrilling.com;
+  location / { try_files $uri $uri/ $uri.html /index.html; }
+  ```
+
+## Under Construction Sayfası (public/under-construction.html)
+- **Three.js r128** + Fresnel shader cam baloncuk efekti
+- **GSAP 3.12.2** loading animasyonu (balonlar aşağıdan yukarı)
+- **Balon sayısı:** Mobil 24, Desktop 42
+- **Balon boyutu:** rScale mobil 0.8, desktop 1.0
+- **Logo merkezi (3D):** Mobil y:1.5, Desktop y:1.8
+- **Exclusion zone:** exBoxW:4.5, exBoxTop:-1.5
+- **Parça görselleri:** 25 adet (`public/images/parts/`)
+- **Canvas removeWhiteBackground:** Beyaz arka plan pixel manipülasyonu ile şeffaf yapılıyor
+- **Responsive layout:**
+  - Mobil: flex column, logo margin-top 200px, UC box margin-top auto (alta yapışık)
+  - Desktop: block layout, logo margin-top 60px, UC box margin-top 20px
+  - Body overflow: mobil hidden, desktop overflow-y auto
+- **Koruma:** Sağ tık engeli, user-select none, drag engeli, copy engeli
+- **Butonlar:** WhatsApp + Email yan yana, sosyal linkler (Instagram/LinkedIn)
+- **Brands text:** Spare Parts for Sandvik | Epiroc | Atlas Copco | Tamrock
+
 ## Sıradaki İşler
+- [ ] UC sayfasını kaldır, gerçek siteyi aç (hazır olduğunda)
 - [ ] Scroll animasyonları ekle (Framer Motion - konsept beğenildi)
 - [ ] Arama çubuğunu daha belirgin yap
 - [ ] Eksik sayfaları oluştur (spare-parts, about, contact vs.)
 - [ ] CLAUDE.md'yi her session sonunda güncelle
+
+## Localhost Test
+- `python -m http.server 8080 -d public` → localhost:8080 (UC sayfası direkt test)
+- `npm run dev` → localhost:3000 (Next.js ana site)
+- Mobil test: Tarayıcıda F12 → Ctrl+Shift+M (Device Toolbar)
